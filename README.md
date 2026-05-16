@@ -11,7 +11,7 @@ This guide walks you through setting up and running this app from scratch on you
 3. Open the downloaded file and follow the installer — just keep clicking Next
 4. Once done, open a terminal and verify it worked:
    ```
-   node --version
+   node -v
    ```
    You should see a version number like `v22.0.0`
 
@@ -24,7 +24,7 @@ This guide walks you through setting up and running this app from scratch on you
 3. **Windows:** during installation, when asked about default editor, select **Use Visual Studio Code** — leave everything else as default
 4. Once done, verify it worked:
    ```
-   git --version
+   git -v
    ```
    You should see a version number like `git version 2.47.0`
 
@@ -49,15 +49,16 @@ This guide walks you through setting up and running this app from scratch on you
 
 ---
 
-## Step 5 — Download this project
+## Step 5 — Fork and download this project
 
-If you have Git installed:
-```
-git clone <repository-url>
-cd <project-folder>
-```
-
-Or download the ZIP from the repository page and extract it, then open the folder in VS Code.
+1. Go to the main repository page on GitHub
+2. Click the **Fork** button at the top right — this creates your own personal copy of the project
+3. On your forked repo page, click the green **Code** button and copy the URL
+4. In VS Code, open a terminal and run:
+   ```
+   git clone <your-fork-url>
+   cd <project-folder>
+   ```
 
 ---
 
@@ -104,10 +105,61 @@ The app should launch on your phone within a few seconds.
 
 ---
 
-## Troubleshooting
+## Git Workflow
+
+Follow this every time you work on the project.
+
+---
+
+### Before starting work — sync the latest changes
+
+**Using terminal:**
+```
+git pull origin main
+npm install
+```
+
+**Using VS Code:**
+1. Click the **Source Control** icon on the left sidebar (looks like a branch)
+2. Click the **...** menu at the top right of the Source Control panel
+3. Click **Pull**
+4. Then run `npm install` in the terminal to make sure dependencies are up to date
+
+---
+
+### After finishing your changes — save and submit
+
+**Using terminal:**
+```
+git add .
+git commit -m "describe what you changed"
+git push origin main
+```
+
+**Using VS Code:**
+1. Click the **Source Control** icon on the left sidebar
+2. You'll see a list of changed files — hover over **Changes** and click the **+** button to stage all files (this is the same as `git add .`)
+3. Type a short description of your changes in the **Message** box at the top
+4. Click the **Commit** button (checkmark)
+5. Click the **Sync Changes** button that appears — this pushes your changes to GitHub
+
+---
+
+### Opening a Pull Request — submitting your work for review
+
+After pushing your changes:
+1. Go to your forked repository on GitHub
+2. Click the **Contribute** button → **Open pull request**
+3. Make sure the base repository is set to the main repo and base branch is `main`
+4. Add a title and short description of what you did
+5. Click **Create pull request**
+
+Your work will then be reviewed before being merged into the main project.
+
+---
 
 **`npm install` fails**
-- Make sure Node.js is installed correctly by running `node --version` in the terminal
+- Make sure Node.js is installed correctly by running `node -v` in the terminal
 
 **QR code doesn't work**
 - Make sure your phone and computer are on the same Wi-Fi network
