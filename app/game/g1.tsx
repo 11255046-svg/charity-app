@@ -6,20 +6,20 @@ export default function Game1() {
 
   return (
     <View style={styles.container}>
-
       {/* Game Content */}
       <Text style={styles.title}>第一關</Text>
-
       {/* Bottom Buttons */}
       <View style={styles.buttonRow}>
         <TouchableOpacity style={styles.button} onPress={() => router.back()}>
           <Text style={styles.buttonText}>返回關卡</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => router.push('/')}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push('/')}
+        >
           <Text style={styles.buttonText}>返回首頁</Text>
         </TouchableOpacity>
       </View>
-
     </View>
   );
 }
